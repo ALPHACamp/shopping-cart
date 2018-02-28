@@ -8,7 +8,9 @@
       <h3><%= item.product.name %></h3>
       $ <%= item.product.price %><br>
       <div class="cart-item-adjust">
+        <%= link_to '+', adjust_item_product_path(item.product, type: "add"), method: :post %>
         <%= item.quantity %>
+        <%= link_to '-', adjust_item_product_path(item.product, type: "substract"), method: :post %>
         <%= button_to "Detele", remove_from_cart_product_path(item.product) %>
       </div>
     </div>
