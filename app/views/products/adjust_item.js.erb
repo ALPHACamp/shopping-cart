@@ -1,0 +1,7 @@
+<% item = current_cart.find_item_by(@product) %>
+<% if !item %>
+  $('.product-<%= @product.id %>').remove();
+<% else %>
+  $('.cart-<%= @product.id %>-qty').text("<%= item.quantity %>");
+<% end %>
+$('.amount').text('<%= current_cart.subtotal %>')
