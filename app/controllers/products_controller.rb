@@ -15,16 +15,16 @@ class ProductsController < ApplicationController
   end
 
   def remove_from_cart
-    product = Product.find(params[:id])
-    cart_item = current_cart.cart_items.find_by(product_id: product)
+    @product = Product.find(params[:id])
+    cart_item = current_cart.cart_items.find_by(product_id: @product)
     cart_item.destroy
 
-    redirect_back(fallback_location: root_path)
+    # redirect_back(fallback_location: root_path)
   end
 
   def adjust_item
-    product = Product.find(params[:id])
-    cart_item = current_cart.cart_items.find_by(product_id: product)
+    @product = Product.find(params[:id])
+    cart_item = current_cart.cart_items.find_by(product_id: @product)
     if params[:type] == "add"
       cart_item.quantity += 1
     elsif params[:type] == "substract"
