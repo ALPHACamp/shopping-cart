@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root "products#index"
   resources :products, only: [:index, :show] do
     post :add_to_cart, on: :member
+    post :remove_from_cart, on: :member
   end
   resource :cart
 

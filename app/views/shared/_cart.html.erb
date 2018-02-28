@@ -7,7 +7,10 @@
     <div class="cart-item-info">
       <h3><%= item.product.name %></h3>
       $ <%= item.product.price %><br>
-      <%= item.quantity %>
+      <div class="cart-item-adjust">
+        <%= item.quantity %>
+        <%= button_to "Detele", remove_from_cart_product_path(item.product) %>
+      </div>
     </div>
   </div>
   <% end %>
