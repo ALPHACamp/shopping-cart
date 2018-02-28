@@ -84,12 +84,21 @@ td, th {
 
 /* cart */
 
+#product-list {
+  width: calc( 100% - 280px);
+  text-align: center;
+}
+
 #my-cart {
+  position: fixed;
+  top: 72px;
+  right: 0;
   border-left: 1px solid #bbb;
   padding: 15px;
-  width: 310px;
+  width: 280px;
   height: 100vh;
   float: right;
+  background-color: #fff;
 }
 
 .cart-item {
@@ -106,4 +115,10 @@ td, th {
 .cart-item-info h3 {
   margin-top: 0px;
   margin-bottom: 5px;
+}
+
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 800;
 }
