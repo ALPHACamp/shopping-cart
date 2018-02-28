@@ -1,0 +1,28 @@
+<h2><%= action_name.capitalize %> Product </h2>
+
+<% if @product.errors.any? %>
+  <h4>We have some errors here !</h4>
+  <ul>
+    <% @product.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <hr>
+<% end %>
+
+<%= form_for [:admin, @product] do |f| %>
+  <div class="">
+    <%= f.text_field :name, placeholder: "Product Name" %>
+  </div>
+  <div class="">
+    <%= image_tag(@product.image, width: 200) if @product.image? %>
+    <%= f.file_field :image %>
+  </div>
+  <div class="">
+    <%= f.text_area :description, placeholder: "Add Product Description" %>
+  </div>
+  <div class="">
+    <%= f.number_field :price, placeholder: "$" %>
+  </div>
+  <%= f.submit %>
+<% end %>
