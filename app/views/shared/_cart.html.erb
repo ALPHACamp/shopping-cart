@@ -1,0 +1,14 @@
+<section id="my-cart">
+  <h1>Cart</h1>
+  <hr>
+  <% current_cart.cart_items.each do |item| %>
+  <div class="cart-item">
+    <%= image_tag item.product.image %>
+    <div class="cart-item-info">
+      <h3><%= item.product.name %></h3>
+      $ <%= item.product.price %><br>
+      <%= item.quantity %>
+    </div>
+  </div>
+  <% end %>
+</section>

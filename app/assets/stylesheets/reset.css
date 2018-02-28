@@ -3,7 +3,7 @@
 }
 
 body {
-  padding: 0px;
+  padding: 20px;
   margin: 0px;
   font-size: 14px;
   line-height: 1.42857143;
@@ -37,4 +37,10 @@ a, a:hover, a:focus {
 img {
   height: auto;
   display: block;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
 }
