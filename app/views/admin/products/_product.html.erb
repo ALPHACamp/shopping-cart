@@ -1,14 +1,6 @@
 <h2><%= action_name.capitalize %> Product </h2>
 
-<% if @product.errors.any? %>
-  <h4>We have some errors here !</h4>
-  <ul>
-    <% @product.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-  <hr>
-<% end %>
+<%= render partial: "shared/form_error", locals: { object: @product }%>
 
 <%= form_for [:admin, @product] do |f| %>
   <div class="">

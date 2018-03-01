@@ -33,6 +33,8 @@
   </table>
 </section>
 
+<%= render partial: "shared/form_error", locals: { object: @order }%>
+
 <%= form_for @order do |f| %>
   <section class="panel">
     <h2>Shpping Information</h2>
