@@ -1,0 +1,16 @@
+<section id="my-cart">
+  <h1>Cart</h1>
+  <hr>
+  <div class="item-list">
+    <% current_cart.cart_items.each do |item| %>
+    <%= render partial: "shared/item", locals: { item: item } %>
+    <% end %>
+  </div>
+  <hr>
+  <div class="subtotal">
+    <p>SUBTOTAL</p>
+    <p class="amount"><%= current_cart.subtotal %></p>
+  </div>
+  <%= link_to "View Cart", cart_path %>
+
+</section>
