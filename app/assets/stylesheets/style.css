@@ -108,7 +108,7 @@ td, th {
   margin-bottom: 15px;
 }
 
-.cart-item img {
+.cart-item img, #cart-list img {
   width: 75px;
 }
 
@@ -121,4 +121,10 @@ td, th {
   display: flex;
   justify-content: space-between;
   font-weight: 800;
+}
+
+#cart-list {
+  border: 1px solid #ccc;
+  padding: 21px;
+  border-radius: 4px;
 }
