@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     post :adjust_item, on: :member
   end
   resource :cart
+  resources :orders
 
   namespace :admin do
     root "products#index"
