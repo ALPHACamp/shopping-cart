@@ -14,4 +14,8 @@ class Order < ApplicationRecord
       )
     end
   end
+
+  def subtotal
+    order_items.map{ |x| x.item_total }.sum
+  end
 end

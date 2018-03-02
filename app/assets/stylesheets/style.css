@@ -156,3 +156,33 @@ td, th {
   background-color: #999;
   color: #fff;
 }
+
+/* order */
+.panel-order {
+  padding: 0;
+}
+
+.panel-order h2 {
+  background: #eee;
+  margin: 0;
+  padding: 5px 15px;
+}
+
+.order-content {
+  display: flex;
+}
+
+.order-data {
+  padding: 10px;
+  margin: 5px 15px;
+}
+
+.order-list {
+  width: 50vw;
+}
+
+
+
+.right-border {
+  border-right: 1px solid #999;
+}

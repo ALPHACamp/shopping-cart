@@ -20,7 +20,7 @@
           <% if current_user %>
             <li><%= link_to "Admin", admin_root_path if current_user.admin? %></li>
             <li><%= link_to "Cart", cart_path %></li>
-            <li><%= link_to "Order" %></li>
+            <li><%= link_to "Order", orders_path %></li>
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
           <% else %>
             <li><%= link_to "Login", new_user_session_path %></li>
