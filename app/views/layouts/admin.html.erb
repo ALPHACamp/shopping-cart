@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myshop</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body id="<%= controller_name %>_<%= action_name %>">
+    <header>
+      <div class="container">
+        <div id="logo">
+          <%= link_to root_path do %>
+            <img src="http://via.placeholder.com/80x40">
+          <% end %>
+        </div>
+        <ul class="nav">
+          <% if current_user.role == "admin" %>
+            <span><%= current_user.email %></span>
+            <li><%= link_to "Products", admin_products_path %></li>
+            <li><%= link_to "Orders", admin_orders_path %></li>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
+
+    <section id="content">
+      <div class="container">
+        <% if notice %>
+          <div class="notice"><%= notice %></div>
+        <% end %>
+
+        <% if alert %>
+          <div class="alert"><%= alert %></div>
+        <% end %>
+
+        <%= yield %>
+      </div>
+    </section>
+
+  </body>
+</html>
