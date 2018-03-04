@@ -1,0 +1,30 @@
+<%= form_for [:admin, @order] do |f| %>
+  <div class="panel panel-order">
+    <h2>Order # <%= @order.sn %></h2>
+    <div class="order-content">
+      <div class="right-border">
+        <div class="order-data">
+          <ul class="order-list">
+            <% @order.order_items.each do |item| %>
+            <li><%= item.product.name %> <%= item.quantity %> x <%= item.price %></li>
+            <% end %>
+            <hr>
+            Subtotal <%= @order.subtotal %>
+          </ul>
+        </div>
+        <div>
+          <h2>Shipping Information</h2>
+          <div class="order-data">
+            <%= @order.name %>, <%= @order.phone %>, <%= @order.address %>
+          </div>
+        </div>
+      </div>
+      <div class="order-data">
+        <p>Payment Method: <%= @order.payment_method %></p>
+        <p>Payment Status: <%= f.select :payment_status, Order::PAYMENT_STATUS %></p>
+        <p>Shipping Status: <%= f.select :shipping_status, Order::SHIPPING_STATUS %></p>
+        <%= f.submit %>
+      </div>
+    </div>
+  </div>
+<% end %>
