@@ -123,8 +123,66 @@ td, th {
   font-weight: 800;
 }
 
-#cart-list {
+.panel {
   border: 1px solid #ccc;
   padding: 21px;
   border-radius: 4px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: inline-block;
+  width: 80px;
+  text-align: right;
+}
+
+.form-group input["text"] {
+  width: 300px;
+}
+
+.btn {
+  background-color: #ddd;
+  padding: 11px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: #999;
+  color: #fff;
+}
+
+/* order */
+.panel-order {
+  padding: 0;
+}
+
+.panel-order h2 {
+  background: #eee;
+  margin: 0;
+  padding: 5px 15px;
+}
+
+.order-content {
+  display: flex;
+}
+
+.order-data {
+  padding: 10px;
+  margin: 5px 15px;
+}
+
+.order-list {
+  width: 50vw;
+}
+
+
+
+.right-border {
+  border-right: 1px solid #999;
 }

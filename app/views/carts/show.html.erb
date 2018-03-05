@@ -1,4 +1,4 @@
-<section id="cart-list">
+<section id="cart-list" class="panel">
   <div>
     <h2>Shopping List</h2>
   </div>
@@ -32,3 +32,26 @@
     </tr>
   </table>
 </section>
+
+<%= render partial: "shared/form_error", locals: { object: @order }%>
+
+<%= form_for @order do |f| %>
+  <section class="panel">
+    <h2>Shpping Information</h2>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="form-group">
+        <%= f.label :phone %>
+        <%= f.text_field :phone %>
+      </div>
+      <div class="form-group">
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+      </div>
+  </section>
+
+  <%= f.submit "CHECKOUT", class: "btn" %>
+
+<% end %>

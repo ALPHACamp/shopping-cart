@@ -17,14 +17,11 @@
           <% end %>
         </div>
         <ul class="nav">
-          <% if current_user %>
+          <% if current_user.role == "admin" %>
             <span><%= current_user.email %></span>
-            <li><%= link_to "Admin", admin_root_path if current_user.admin? %></li>
-            <li><%= link_to "Cart", cart_path %></li>
-            <li><%= link_to "Order", orders_path %></li>
+            <li><%= link_to "Products", admin_products_path %></li>
+            <li><%= link_to "Orders", admin_orders_path %></li>
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-          <% else %>
-            <li><%= link_to "Login", new_user_session_path %></li>
           <% end %>
         </ul>
       </div>

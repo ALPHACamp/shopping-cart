@@ -1,0 +1,22 @@
+<h3>Hi, <%= @order.name %> </h3>
+
+<p><%= @content %></p>
+
+<hr>
+<h2>Order # <%= @order.sn %></h2>
+<ul>
+  <% @order.order_items.each do |item| %>
+    <li><%= item.product.name %> <%= item.quantity %> x <%= item.price %></li>
+  <% end %>
+  <p>Subtotal <%= @order.subtotal %></p>
+</ul>
+<hr>
+<h2>Shoping Information</h2>
+<p><%= @order.name %></p>
+<p><%= @order.phone %></p>
+<p><%= @order.address %></p>
+
+<p>
+  Best, <br>
+  from ALPHA Camp
+</p>
