@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     post :adjust_item, on: :member
   end
   resource :cart
-  resources :orders
+  resources :orders do
+    post :checkout_spgateway, on: :member
+  end
 
   namespace :admin do
     root "products#index"

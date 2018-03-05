@@ -29,8 +29,6 @@ ul, ol {
 }
 
 a, a:hover, a:focus {
-  margin: 0px;
-  padding: 0px;
   text-decoration: none;
 }
 
