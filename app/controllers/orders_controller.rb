@@ -27,6 +27,15 @@ class OrdersController < ApplicationController
     end
   end
 
+  def update
+    @order = current_user.orders.find(params[:id])
+    if @order.shipping_status == "not_shipped"
+      @order.shipping_status = "cancelled"
+      @order.save
+      redirect_to orders_path, alert: "order##{@order.sn} cancelled."
+    end
+  end
+
   private
 
   def order_params
