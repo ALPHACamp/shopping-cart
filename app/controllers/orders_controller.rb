@@ -57,6 +57,7 @@ class OrdersController < ApplicationController
         MerchantOrderNo: "#{@payment.id}AC",
         Amt: @order.amount,
         ItemDesc: @order.name,
+        ReturnURL: spgateway_return_url,
         Email: @order.user.email,
         LoginType: 0
       }.to_query
