@@ -48,21 +48,7 @@ class OrdersController < ApplicationController
         amount: @order.amount
       )
 
-      # get params string
-      spgateway_data = {
-        MerchantID: "MS33418458",
-        Version: 1.4,
-        RespondType: "JSON",
-        TimeStamp: Time.now.to_i,
-        MerchantOrderNo: "#{@payment.id}AC",
-        Amt: @order.amount,
-        ItemDesc: @order.name,
-        ReturnURL: spgateway_return_url,
-        Email: @order.user.email,
-        LoginType: 0
-      }.to_query
-
-      #=> "MerchantID=MS33418458&Version=1.4&RespondType=JSON&TimeStamp=1520672384&MerchantOrderNo=1520672373&Amt=10120&ItemDesc=Ellen&Email=root@example.com&LoginType=0"
+      spgateway_data = Spgateway.new(@payment).generate_form_data(spgateway_return_url)
 
       # AES encrypt
 
