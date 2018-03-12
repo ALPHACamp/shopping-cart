@@ -27,6 +27,28 @@ class Spgateway
       LoginType: 0
     }
 
-    spgateway_data.to_query
+    trade_info = self.encrypt(spgateway_data)
+    trade_sha = self.class.generate_aes_sha256(trade_info)
+
+    return {
+      MerchantID: self.merchant_id,
+      TradeInfo: trade_info,
+      TradeSha: trade_sha,
+      Version: '1.4'
+    }
+  end
+
+  def encrypt(params_data)
+    cipher = OpenSSL::Cipher::AES256.new(:CBC)
+    cipher.encrypt
+    cipher.key = self.hash_key
+    cipher.iv  = self.hash_iv
+    encrypted = cipher.update(params_data.to_query) + cipher.final
+    aes = encrypted.unpack('H*').first # binary 轉 hex
+  end
+
+  def self.generate_aes_sha256(trade_info)
+    str = "HashKey=#{self.hash_key}&#{trade_info}&HashIV=#{self.hash_iv}"
+    Digest::SHA256.hexdigest(str).upcase
   end
 end
