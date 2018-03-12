@@ -1,9 +1,10 @@
 <h1>轉址前往信用卡付款頁面，請勿關閉或離開頁面...</h1>
 
-<form name='Spgateway' method='post' action='https://ccore.spgateway.com/MPG/mpg_gateway'>
-  MerchantID: <%= text_field_tag "MerchantID", @merchant_id %><br>
-  TradeInfo: <%= text_field_tag "TradeInfo", @trade_info %><br>
-  TradeSha: <%= text_field_tag "TradeSha", @trade_sha %><br>
-  Version: <%= text_field_tag "Version", @version %><br>
-  <input type="submit" value='submit'>
+<form action="<%= Spgateway.url %>" method="post">
+  <% Spgateway.new(@payment).generate_form_data(spgateway_return_url).each do |key, value| %>
+    <%= hidden_field_tag key, value %>
+  <% end %>
+  <input type="submit" style="visibility:hidden;">
 </form>
+
+<script>document.forms[0].submit()</script>
