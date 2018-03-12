@@ -7,10 +7,13 @@ class Spgateway
 
   def initialize(payment)
     @payment = payment
-    self.merchant_id = "MS33418458"
-    self.hash_key = "DEOViIHoxZRzElSe9p14KFa8k4vx7Tfv"
-    self.hash_iv = "nIxiaIldrOFR4JPe"
-    self.url = "https://ccore.spgateway.com/MPG/mpg_gateway"
+
+    spgateway_config = Rails.application.config_for(:spgateway)
+
+    self.merchant_id = spgateway_config["merchant_id"]
+    self.hash_key = spgateway_config["hash_key"]
+    self.hash_iv = spgateway_config["hash_iv"]
+    self.url = spgateway_config["url"]
   end
 
   def generate_form_data(return_url)
