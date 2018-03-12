@@ -4,6 +4,7 @@ class Spgateway
   mattr_accessor :hash_key
   mattr_accessor :hash_iv
   mattr_accessor :url
+  mattr_accessor :notify_url
 
   def initialize(payment)
     @payment = payment
@@ -14,6 +15,7 @@ class Spgateway
     self.hash_key = spgateway_config["hash_key"]
     self.hash_iv = spgateway_config["hash_iv"]
     self.url = spgateway_config["url"]
+    self.notify_url = spgateway_config["notify_url"]
   end
 
   def generate_form_data(return_url)
@@ -26,6 +28,7 @@ class Spgateway
       Amt: @payment.amount,
       ItemDesc: @payment.order.name,
       ReturnURL: return_url,
+      NotifyURL: self.notify_url,
       Email: @payment.order.user.email,
       LoginType: 0,
       CREDIT: 0,
