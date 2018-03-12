@@ -38,6 +38,26 @@ class Spgateway
     }
   end
 
+  def self.decrypt(trade_info, trade_sha)
+    return nil if self.generate_aes_sha256(trade_info) != trade_sha
+
+    decipher = OpenSSL::Cipher::AES256.new(:CBC)
+    decipher.decrypt
+    decipher.padding = 0
+    decipher.key = self.hash_key
+    decipher.iv = self.hash_iv
+
+    binary_encrypted = [trade_info].pack('H*') # hex to binary
+    plain = decipher.update(binary_encrypted) + decipher.final
+
+    # strip last padding
+    if plain[-1] != '}'
+      plain = plain[0, plain.index(plain[-1])]
+    end
+
+    return JSON.parse(plain)
+  end
+
   def encrypt(params_data)
     cipher = OpenSSL::Cipher::AES256.new(:CBC)
     cipher.encrypt
