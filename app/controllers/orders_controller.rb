@@ -45,6 +45,7 @@ class OrdersController < ApplicationController
       @payment = Payment.create!(
         sn: Time.now.to_i,
         order_id: @order.id,
+        payment_method: params[:payment_method],
         amount: @order.amount
       )
 
