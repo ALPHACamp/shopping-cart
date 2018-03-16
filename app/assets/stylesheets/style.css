@@ -140,7 +140,7 @@ td, th {
   text-align: right;
 }
 
-.form-group input["text"] {
+.form-group input[type=text] {
   width: 300px;
 }
 
