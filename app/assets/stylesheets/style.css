@@ -181,8 +181,15 @@ td, th {
   width: 50vw;
 }
 
-
-
 .right-border {
   border-right: 1px solid #999;
+}
+
+.panel-order .btn {
+  font-size: 12px;
+  padding: 5px 7px;
+}
+
+.panel-order a {
+  color: black;
 }

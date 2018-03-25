@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  post "spgateway/return"
+  post "spgateway/notify"
 
   root "products#index"
   resources :products, only: [:index, :show] do
@@ -9,7 +11,9 @@ Rails.application.routes.draw do
     post :adjust_item, on: :member
   end
   resource :cart
-  resources :orders
+  resources :orders do
+    post :checkout_spgateway, on: :member
+  end
 
   namespace :admin do
     root "products#index"
