@@ -1,0 +1,13 @@
+<div class="cart-item product-<%= item.product.id %>">
+  <%= image_tag item.product.image %>
+  <div class="cart-item-info">
+    <h3><%= item.product.name %></h3>
+    $ <%= item.product.price %><br>
+    <div class="cart-item-adjust">
+      <%= link_to '+', adjust_item_product_path(item.product, type: "add"), method: :post, remote: true %>
+      <span class="cart-<%= item.product.id %>-qty" ><%= item.quantity %></span>
+      <%= link_to '-', adjust_item_product_path(item.product, type: "substract"), method: :post, remote: true %>
+      <%= button_to "Detele", remove_from_cart_product_path(item.product), remote: true %>
+    </div>
+  </div>
+</div>

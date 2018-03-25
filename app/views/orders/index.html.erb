@@ -1,0 +1,36 @@
+<% @orders.each do |order| %>
+  <div class="panel panel-order">
+    <h2>Order # <%= order.sn %></h2>
+    <div class="order-content">
+      <div class="right-border">
+        <div class="order-data">
+          <ul class="order-list">
+            <% order.order_items.each do |item| %>
+            <li><%= item.product.name %> <%= item.quantity %> x <%= item.price %></li>
+            <% end %>
+            <hr>
+            Subtotal <%= order.subtotal %>
+          </ul>
+        </div>
+        <div>
+          <h2>Shipping Information</h2>
+          <div class="order-data">
+            <%= order.name %>, <%= order.phone %>, <%= order.address %>
+          </div>
+        </div>
+      </div>
+      <div class="order-data">
+        <p>Payment Status: <%= order.payment_status %></p>
+        <p>Shipping Status: <%= order.shipping_status %></p>
+        <% if order.payment_status == "not_paid" && order.shipping_status != "cancelled" %>
+          <% Payment::PAYMENT_METHODS.each do |method| %>
+            <%= link_to method, checkout_spgateway_order_path(order, payment_method: method), method: :post, class: "btn" %>
+          <% end %>
+        <% end %>
+        <% if order.shipping_status == "not_shipped" %>
+          <%= link_to "Cancel Order", order_path(order), method: :patch, class: "btn"  %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

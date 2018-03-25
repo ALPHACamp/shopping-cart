@@ -1,0 +1,9 @@
+<%= render "shared/cart" %>
+
+<%= image_tag(@product.image, width: 100 ) %>
+
+<h3><%= @product.name %></h3>
+<h5>$ <%= @product.price %></h5>
+<%= simple_format @product.description %>
+
+<%= button_to 'Add to Cart', add_to_cart_product_path(@product), remote: true %>

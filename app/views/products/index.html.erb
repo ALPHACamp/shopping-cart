@@ -1,0 +1,16 @@
+<%= render "shared/cart" %>
+
+<section id="product-list">
+  <% @products.each do |product| %>
+  <div class="product-box product_<%= product.id %>">
+    <%= link_to product_path(product) do %>
+      <%= image_tag product.image %><br>
+      <%= product.name %><br>
+    <% end %>
+    $<%= product.price %>
+    <%= button_to 'Add to Cart', add_to_cart_product_path(product), remote: true %>
+  </div>
+  <% end %>
+</section>
+
+<%= paginate @products %>

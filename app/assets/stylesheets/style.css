@@ -1,0 +1,195 @@
+/* header */
+
+#logo {
+  float: left;
+}
+
+.nav {
+  float: right;
+}
+
+.nav li {
+  display: inline-block;
+  background-color: #eee;
+  border: 1px solid #ccc;
+}
+
+.nav li a {
+  color: #000;
+  display: block;
+  padding: 10px 12px;
+}
+
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0px;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #ccc;
+  padding: 3px;
+  text-align: center;
+}
+
+/* alert */
+
+.notice, .alert {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+.notice {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border: 1px solid #d6e9c6;
+}
+
+.alert {
+  color: #a94442;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+}
+
+/* product */
+
+#content {
+  margin-top: 72px;
+}
+
+.product-box {
+  border: 1px solid #eee;
+  display: inline-block;
+  padding: 5px 15px;
+  margin: 5px;
+}
+
+.product-box img {
+  width: 80px;
+}
+
+.product-box img:hover {
+  background-color: #eee
+}
+
+.description {
+  padding: 10px;
+  background-color: #eee;
+  font-size: 14px;
+  width: 50%;
+}
+
+/* cart */
+
+#product-list {
+  width: calc( 100% - 280px);
+  text-align: center;
+}
+
+#my-cart {
+  position: fixed;
+  top: 72px;
+  right: 0;
+  border-left: 1px solid #bbb;
+  padding: 15px;
+  width: 280px;
+  height: 100vh;
+  float: right;
+  background-color: #fff;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.cart-item img, #cart-list img {
+  width: 75px;
+}
+
+.cart-item-info h3 {
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 800;
+}
+
+.panel {
+  border: 1px solid #ccc;
+  padding: 21px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: inline-block;
+  width: 80px;
+  text-align: right;
+}
+
+.form-group input["text"] {
+  width: 300px;
+}
+
+.btn {
+  background-color: #ddd;
+  padding: 11px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: #999;
+  color: #fff;
+}
+
+/* order */
+.panel-order {
+  padding: 0;
+}
+
+.panel-order h2 {
+  background: #eee;
+  margin: 0;
+  padding: 5px 15px;
+}
+
+.order-content {
+  display: flex;
+}
+
+.order-data {
+  padding: 10px;
+  margin: 5px 15px;
+}
+
+.order-list {
+  width: 50vw;
+}
+
+.right-border {
+  border-right: 1px solid #999;
+}
+
+.panel-order .btn {
+  font-size: 12px;
+  padding: 5px 7px;
+}
+
+.panel-order a {
+  color: black;
+}

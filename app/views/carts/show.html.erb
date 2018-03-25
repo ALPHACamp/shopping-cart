@@ -1,0 +1,57 @@
+<section id="cart-list" class="panel">
+  <div>
+    <h2>Shopping List</h2>
+  </div>
+  <table>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @items.each do |item| %>
+      <tr class="product-<%= item.product.id %>">
+        <td><%= image_tag item.product.image %></td>
+        <td><%= item.product.name %></td>
+        <td>$ <%= item.product.price %></td>
+        <td class="cart-item-adjust">
+          <%= link_to '+', adjust_item_product_path(item.product, type: "add"), method: :post, remote: true %>
+          <span class="cart-<%= item.product.id %>-qty" ><%= item.quantity %></span>
+          <%= link_to '-', adjust_item_product_path(item.product, type: "substract"), method: :post, remote: true %>
+        </td>
+        <td class="item-<%= item.product.id%>-total"><%= item.item_total %></td>
+        <td><%= link_to "Detele", remove_from_cart_product_path(item.product), method: :post, remote: true %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan="4">Subtotal</td>
+      <td class="amount"><%= current_cart.subtotal %></td>
+      <td></td>
+    </tr>
+  </table>
+</section>
+
+<%= render partial: "shared/form_error", locals: { object: @order }%>
+
+<%= form_for @order do |f| %>
+  <section class="panel">
+    <h2>Shpping Information</h2>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="form-group">
+        <%= f.label :phone %>
+        <%= f.text_field :phone %>
+      </div>
+      <div class="form-group">
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+      </div>
+  </section>
+
+  <%= f.submit "CHECKOUT", class: "btn" %>
+
+<% end %>

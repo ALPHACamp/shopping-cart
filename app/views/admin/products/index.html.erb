@@ -1,0 +1,21 @@
+<%= link_to "Add New Product", new_admin_product_path %>
+
+<table>
+  <tr>
+    <th>Product Name</th>
+    <th>Image</th>
+    <th>Price</th>
+    <th>Option</th>
+  </tr>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= image_tag(product.image, width: 50) if product.image? %></td>
+      <td><%= product.price %></td>
+      <td><%= link_to "Edit Detail", edit_admin_product_path(product) %></td>
+      <td><%= link_to "Delete", admin_product_path(product), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= paginate @products %>

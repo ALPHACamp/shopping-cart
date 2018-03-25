@@ -1,0 +1,10 @@
+development:
+  address: "smtp.gmail.com"
+  port: 587
+  domain: "gmail.com"
+  authentication: "plain"
+  user_name: "your_email_account" # please update
+  password: "your_email_password" # please update
+  enable_starttls_auto: true
+
+# Gmail setting: https://support.google.com/a/answer/176600?hl=en

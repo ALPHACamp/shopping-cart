@@ -1,0 +1,20 @@
+<h2><%= action_name.capitalize %> Product </h2>
+
+<%= render partial: "shared/form_error", locals: { object: @product }%>
+
+<%= form_for [:admin, @product] do |f| %>
+  <div class="">
+    <%= f.text_field :name, placeholder: "Product Name" %>
+  </div>
+  <div class="">
+    <%= image_tag(@product.image, width: 200) if @product.image? %>
+    <%= f.file_field :image %>
+  </div>
+  <div class="">
+    <%= f.text_area :description, placeholder: "Add Product Description" %>
+  </div>
+  <div class="">
+    <%= f.number_field :price, placeholder: "$" %>
+  </div>
+  <%= f.submit %>
+<% end %>

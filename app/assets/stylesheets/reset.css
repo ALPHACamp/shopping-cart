@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+  margin: 0px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ddd;
+  z-index: 100;
+  padding: 15px;
+}
+
+ul, ol {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+a, a:hover, a:focus {
+  text-decoration: none;
+}
+
+img {
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
